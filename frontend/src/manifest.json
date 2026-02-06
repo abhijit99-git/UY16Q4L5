@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Fake Resource Detector",
+    "version": "1.0.0",
+    "description": "Detects phishing websites and fake resources.",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "background": {
+        "service_worker": "src/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content.js"
+            ]
+        }
+    ]
+}
