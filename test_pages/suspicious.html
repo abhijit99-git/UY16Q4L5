@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suspicious Page Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #ffe6e6; text-align: center; padding: 50px; }
+        .container { background: white; padding: 30px; border-radius: 10px; border: 2px solid red; display: inline-block; }
+        h1 { color: red; }
+        .keyword { color: orange; font-weight: bold; }
+        .hidden { color: white; } /* Hidden text to test detection of invisible checks if we wanted, but generic innerText catches this usually */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CONGRATULATIONS!</h1>
+        <p>You have been selected as a <strong>lottery winner</strong>!</p>
+        <p>Click here to <span class="keyword">claim your prize</span> immediately.</p>
+        
+        <hr>
+        
+        <p>Please verify your <span class="keyword">bank account details</span> to proceed.</p>
+        <p>This is an <span class="keyword">urgent action required</span> notification.</p>
+        
+        <p>We are just giving away <span class="keyword">free money</span> to lucky visitors.</p>
+        
+        <br>
+        <button style="padding: 10px 20px; font-size: 16px; background: red; color: white; border: none; cursor: pointer;">
+            Verify Your Identity Now
+        </button>
+    </div>
+
+    <!-- Instructions for the User -->
+    <div style="margin-top: 50px; color: #555;">
+        <h3>How to Test:</h3>
+        <ol style="text-align: left; display: inline-block;">
+            <li>Ensure the <strong>Fake Resource Detector</strong> extension is active.</li>
+            <li>The extension icon badge should turn <strong>RED</strong> or <strong>ORANGE</strong>.</li>
+            <li>Click the extension icon to see the detection details.</li>
+        </ol>
+    </div>
+</body>
+</html>
