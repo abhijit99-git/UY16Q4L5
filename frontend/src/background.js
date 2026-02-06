@@ -1,8 +1,8 @@
 // Background script
 console.log("Fake Resource Detector Background Script Running");
 
-// Hardcode for stability during dev using 127.0.0.1 to avoid localhost resolution issues
-const API_URL = "http://127.0.0.1:5000/api/analyze";
+// Production API URL
+const API_URL = "https://safesurf-vfg8.onrender.com/api/analyze";
 
 chrome.runtime.onInstalled.addListener(() => {
     console.log("Extension installed");
