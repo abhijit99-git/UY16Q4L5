@@ -30,12 +30,12 @@ const Home = () => {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button className="hidden sm:block text-sm font-semibold px-4 py-2 hover:text-primary transition-colors">
+            <Link to="/login" className="hidden sm:block text-sm font-semibold px-4 py-2 hover:text-primary transition-colors">
               Log In
-            </button>
-            <button className="bg-primary text-white text-sm font-bold px-6 py-2.5 rounded-lg hover:brightness-110 transition-all glow-effect">
+            </Link>
+            <a href="/dist.zip" download className="bg-primary text-white text-sm font-bold px-6 py-2.5 rounded-lg hover:brightness-110 transition-all glow-effect">
               Download Extension
-            </button>
+            </a>
           </div>
         </div>
       </header>
