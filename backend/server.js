@@ -32,6 +32,58 @@ app.get('/', (req, res) => {
   res.json({ message: 'Todo API Server is running!' });
 });
 
+app.post('/api/analyze', (req, res) => {
+  const { url } = req.body;
+
+  if (!url) {
+    return res.status(400).json({ error: 'URL is required' });
+  }
+
+  // Simulation Logic
+  let score = 85;
+  const riskDetails = [];
+  const isHttps = url.startsWith('https://');
+
+  if (!isHttps) {
+    score -= 20;
+    riskDetails.push({ type: 'warning', message: 'Not using HTTPS' });
+  } else {
+    riskDetails.push({ type: 'success', message: 'Valid SSL Certificate' });
+  }
+
+  const suspiciousKeywords = ['login', 'verify', 'account', 'update', 'secure', 'bank'];
+  const foundKeywords = suspiciousKeywords.filter(kw => url.includes(kw));
+
+  if (foundKeywords.length > 0) {
+    score -= 30;
+    riskDetails.push({ type: 'danger', message: `Suspicious keywords detected: ${foundKeywords.join(', ')}` });
+  }
+
+  if (url.length > 50) {
+    score -= 10;
+    riskDetails.push({ type: 'warning', message: 'Unusually long URL length' });
+  }
+
+  // Normalize score
+  score = Math.max(0, Math.min(100, score));
+
+  let riskLevel = 'Low';
+  if (score < 50) riskLevel = 'Critical';
+  else if (score < 80) riskLevel = 'Moderate';
+
+  // Simulate processing delay
+  setTimeout(() => {
+    res.json({
+      url,
+      score,
+      riskLevel,
+      details: riskDetails,
+      geo: 'United States (Simulated)',
+      registrar: 'GoDaddy.com, LLC (Simulated)'
+    });
+  }, 1500);
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);

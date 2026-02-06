@@ -4,6 +4,8 @@ import Detector from "./Detector.jsx";
 import About from "./About.jsx";
 import Privacy from "./Privacy.jsx";
 import Contact from "./Contact.jsx";
+import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );

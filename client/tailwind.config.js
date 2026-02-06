@@ -10,8 +10,8 @@ export default {
       colors: {
         "primary": "#258cf4",
         "background-light": "#f5f7f8",
-        "background-dark": "#101922",
-        "surface-dark": "#16202a",
+        "background-dark": "#020617", // darker blue (slate-950)
+        "surface-dark": "#0f172a",   // dark blue (slate-900)
         "danger": "#ef4444",
         "success": "#22c55e",
         "warning": "#f59e0b",
